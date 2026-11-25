@@ -65,7 +65,13 @@ BitArts publishes the pack in its catalog with Aember's
 
 It signs the pack again with the hardened runtime, notarizes it,
 signs its checksum, uploads it and registers it (unpublished until
-`--publish`). `--dry-run` shows what it would do. Raise the version in
+`--publish`). `--dry-run` shows what it would do. Once it is tried on
+staging, production gets the same zip, since both share the bucket:
+
+```bash
+~/dev/Aember/Scripts/upload-language-pack.sh --no-upload --zip objective-c.aemberpack.zip
+```
+ Raise the version in
 `Info.plist` and `Sources/ObjectiveCPack.swift` for each release.
 
 ## Updating the grammar
