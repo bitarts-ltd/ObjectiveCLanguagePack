@@ -54,6 +54,20 @@ swift test
 `build/objective-c.aemberpack` is the pack. Without BitArts' signing
 identity, leave out `--sign`: Aember then asks before running it.
 
+## Publishing
+
+BitArts publishes the pack in its catalog with Aember's
+`Scripts/upload-language-pack.sh`, from this repository's build:
+
+```bash
+~/dev/Aember/Scripts/upload-language-pack.sh --staging --file build/objective-c.aemberpack
+```
+
+It signs the pack again with the hardened runtime, notarizes it,
+signs its checksum, uploads it and registers it (unpublished until
+`--publish`). `--dry-run` shows what it would do. Raise the version in
+`Info.plist` and `Sources/ObjectiveCPack.swift` for each release.
+
 ## Updating the grammar
 
 `Grammar/` is tree-sitter-objc as it is upstream (`Grammar/SOURCE`
